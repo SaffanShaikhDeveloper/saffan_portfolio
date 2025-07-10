@@ -20,7 +20,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus("Sending...");
     try {
-      await axios.post("http://localhost:${port}/send-email", formData);
+      await axios.post("https://saffan-portfolio-server.onrender.com/send-email", formData);
       setStatus("Email sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch {
