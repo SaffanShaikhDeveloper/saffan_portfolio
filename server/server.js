@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = ProcessingInstruction.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -36,5 +36,5 @@ app.post("/send-email", async (req, res) => {
 });
 
 app.listen(port, () =>
-  console.log("✅ Server running at http://localhost:$port")
+  console.log("✅ Server running at http://localhost:${port}")
 );
