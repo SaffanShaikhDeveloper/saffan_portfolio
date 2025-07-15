@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Contact = () => {
   const port = process.env.PORT || 5000;
+  //const port = 5000;
   //Contact Form logic
   const [formData, setFormData] = useState({
     name: "",
@@ -20,7 +21,10 @@ const Contact = () => {
     e.preventDefault();
     setStatus("Sending...");
     try {
-      await axios.post("https://saffan-portfolio-server.onrender.com/send-email", formData);
+      await axios.post(
+        "https://saffan-portfolio-server.onrender.com/send-email",
+        formData
+      );
       setStatus("Email sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch {
