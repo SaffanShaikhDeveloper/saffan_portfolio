@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { Globe } from "../components/Globe";
 import CopyButtonEmail from "../components/CopyButtonEmail";
 import { Frameworks } from "../components/Frameworks";
+import LazyComponent from "../components/LazyLoadWrapper";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const About = () => {
   const grid2Container = useRef();
@@ -81,7 +83,9 @@ const About = () => {
             </p>
           </div>
           <figure className="absolute left-[30%] top-[10%]">
-            <Globe />
+            <ErrorBoundary>
+              <Globe />
+            </ErrorBoundary>
           </figure>
         </div>
         {/* grid 4 */}

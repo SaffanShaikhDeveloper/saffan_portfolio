@@ -3,8 +3,8 @@ import { useState } from "react";
 import axios from "axios";
 
 const Contact = () => {
-  const port = process.env.PORT || 5000;
-  //const port = 5000;
+  //const port = process.env.PORT || 5000;
+  const port = 5000;
   //Contact Form logic
   const [formData, setFormData] = useState({
     name: "",

@@ -15,6 +15,10 @@ const About = lazy(() => import("./sections/About"));
 const Projects = lazy(() => import("./sections/Projects"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./sections/Footer"));
+//import LazyComponent from "../components/LazyLoadWrapper";
+const LazyComponent = lazy(() => import("./components/LazyLoadWrapper"));
+//import ErrorBoundary from "../components/ErrorBoundary";
+const ErrorBoundry = lazy(() => import("./components/ErrorBoundary"));
 
 const Loader = () => (
   <div className="flex items-center justify-center h-screen">
@@ -33,15 +37,23 @@ const App = () => {
           <Hero />
         </section>
         <section id="about">
-          <About />
+          <LazyComponent>
+            <About />
+          </LazyComponent>
         </section>
         <section id="projects">
-          <Projects />
+          <LazyComponent>
+            <Projects />
+          </LazyComponent>
         </section>
         {/* experience */}
         {/* testimonials */}
         <section id="contact">
-          <Contact />
+          <LazyComponent>
+            <ErrorBoundry>
+              <Contact />
+            </ErrorBoundry>
+          </LazyComponent>
         </section>
         <Footer />
       </Suspense>
